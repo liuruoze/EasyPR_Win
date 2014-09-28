@@ -1,0 +1,397 @@
+<html>
+<head>
+<title>CPictureBox ReadMe</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+
+<body bgcolor="#FFFFFF">
+<p>
+  <font color="#FF0000" size="+6" face="Arial, Helvetica, sans-serif"><strong>CPictureBox</strong></font><font face="Arial, Helvetica, sans-serif">v 1.0<br>
+by <a href="#contact">Trilobyte-Solutions</a></font></p>
+<p>
+  <font face="Arial, Helvetica, sans-serif"><strong>1) <a href="#Intro">Introduction</a></strong><br>
+  <strong>2) <a href="#license">License Agreement</a></strong><br>
+  <strong>3) <a href="#funcdesc">Function Descriptions</a></strong><br>
+  <strong>4) <a href="#trouble">Troubleshooting</a></strong><br>
+  <strong>5) <a href="#contact">Contact Information</a></strong></font></p>
+
+<font face="Arial, Helvetica, sans-serif"><br>
+</font><font face="Arial, Helvetica, sans-serif"><strong><a name="Intro">2) Introduction:</a></strong><br>
+CPictureBox is a WTL ScrollWindow based class, used to load & display images, it is designed to be easy to use. <br>
+Features:
+</font>
+<ul>
+  <li><font color="#000000" face="Arial, Helvetica, sans-serif">Load and display *.bmp, *.jpg, *.png and *.gif</font></li>
+  <li><font color="#000000" face="Arial, Helvetica, sans-serif">Ability to stretch the image over the whole view</font></li>
+  <li><font color="#000000" face="Arial, Helvetica, sans-serif">Built in context menu</font></li>
+</ul>
+To use CPictureBox, follow the next steps:<br>
+1. Determine in what file you want to use the PictureBox.<br>
+2. include "PictureBox.h" in that file.<br>
+4. Create the PictureBox whith the Create function, example: Create(m_hWnd, rcDefault, NULL, WS_VSISIBLE|WS_CHILD|WS_CLIPSIBLINGS|WS_CLIPCHILDEREM, WS_EX_CLIENTEDGE).
+	Where m_hWnd is the handle of the parent window, and rcDefault is the create rect.<br>
+5. Now the PictureBox is ready for useage.<br><br>
+<font face="Arial, Helvetica, sans-serif">If you have any comment, suggestions, request or complains, please contact use, see <a href="#contact">Contact Information</a> for more details.
+</p>
+
+<br>
+</font>
+<p></p>
+<font face="Arial, Helvetica, sans-serif"><strong>2) <a name="license">License Agreement</a></strong><br>
+This code may be used in any kind of project, however it may not be sold seperatly without the permision of the Trilobyte-Solutions team. Trilobyte-Solutions is not responsible for any problems caused by this code.
+</p>
+
+<br>
+<p><strong><a name="funcdesc">3) Function Descriptions:</a>
+  </strong>
+</font>
+<table border="0">
+	<tr>
+		<td colspan="4"><font color="#0000FF" face="Arial, Helvetica, sans-serif">class</font><font face="Arial, Helvetica, sans-serif"> CPictureBox: <font color="#0000FF">public CScrollWindowImpl</font>&lt;CPictureBox&gt;</font></td>
+	</tr>
+	<tr>
+		<td colspan="4"><font face="Arial, Helvetica, sans-serif">{</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#0000FF" face="Arial, Helvetica, sans-serif">public:</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#008000" face="Arial, Helvetica, sans-serif">// Constructor/Destructor</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td></td>
+		<td colspan="2"><font face="Arial, Helvetica, sans-serif"><a href="#CPictureBox">CPictureBox()</a></font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td></td>
+		<td colspan="2"><font face="Arial, Helvetica, sans-serif"><a href="#~CPictureBox">~CPictureBox()</a></font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#008000" face="Arial, Helvetica, sans-serif">// Message handlers</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">LRESULT</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#OnCreate">OnCreate</a>(<font color="#0000FF">LPCREATESTRUCT</font> lpCreateStruct)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">LRESULT</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#OnEraseBkGnd">OnEraseBkGnd</a>(<font color="#0000FF">HDC</font> hDC)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#OnRMouseDown">OnRMouseDown</a>(<font color="#0000FF">UINT</font> uiFlags, <font color="#0000FF">CPoint</font>& rPoint)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#OnCenterImage">OnCenterImage</a>(<font color="#0000FF">UINT</font>, <font color="#0000FF">int</font>, <font color="#0000FF">HWND</font>)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#OnStretchImage">OnStretchImage</a>(<font color="#0000FF">UINT</font>, <font color="#0000FF">int</font>, <font color="#0000FF">HWND</font>)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#008000" face="Arial, Helvetica, sans-serif">// Overloaded from CScrollWindowImpl</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#DoPaint">DoPaint</a>(<font color="#0000FF">CDCHandle</font> hDC)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">int</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#ScrollWindowEx">ScrollWindowEx</a>(<font color="#0000FF">int</font> dx, <font color="#0000FF">int</font> dy, <font color="#0000FF">UINT</font> uiFlags)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#008000" face="Arial, Helvetica, sans-serif">// Picture functions</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">HBITMAP</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#GetBitmap">GetBitmap</a>()</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">HBITMAP</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#GetSaveBitmap">GetSaveBitmap</a>()<font color="#0000FF">const</font></font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#SetBitmap">SetBitmap</a>(<font color="#0000FF">HBITMAP</font> hBitmap, <font color="#0000FF">bool</font> bOwner = <font color="#0000FF">true</font>)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#LoadBitmapFromFile">LoadBitmapFromFile</a>(<font color="#0000FF">LPCTSTR</font> pszFileName)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#LoadBitmapFromID">LoadBitmapFromID</a>(<font color="#0000FF">HINSTANCE</font> hInstance, <font color="#0000FF">UINT</font> uiIDResource)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#CenterPicture">CenterPicture</a>(<font color="#0000FF">bool</font> bCenter)</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#StretchPicture">StretchPicture</a>(<font color="#0000FF">bool</font> bStretch)</font></td>
+	</tr>	
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#008000" face="Arial, Helvetica, sans-serif">// Misc functions</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#UseMenu">UseMenu</a>(<font color="#0000FF">bool</font> bUseMenu)</font></td>
+	</tr>		
+	<tr>
+		<td width="20"></td>
+		<td colspan="3"><font color="#0000FF" face="Arial, Helvetica, sans-serif">private:</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td colspan="2"><font color="#008000" face="Arial, Helvetica, sans-serif">// Misc functions</font></td>
+	</tr>	
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#UpdateScrollView">UpdateScrollView</a>()</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">void</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#UpdateMenu">UpdateMenu</a>()</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td colspan="2"><font color="#008000" face="Arial, Helvetica, sans-serif">// Variables</font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td><font color="#0000FF" face="Arial, Helvetica, sans-serif">DWORD</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#m_dwStyle">m_dwStyle</a></font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td width="100"><font color="#0000FF" face="Arial, Helvetica, sans-serif">ATL::CImage</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#m_Image">m_Image</a></font></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="20"></td>
+		<td width="100"><font color="#0000FF" face="Arial, Helvetica, sans-serif">WTL::CMenu</font></td>
+		<td><font face="Arial, Helvetica, sans-serif"><a href="#m_Menu">m_Menu</a></font></td>
+	</tr>
+	<tr>
+		<td colspan="4"><font face="Arial, Helvetica, sans-serif">};</font></td>
+	</tr>
+</table>
+
+<font face="Arial, Helvetica, sans-serif">
+</p>
+<br>
+<p><strong>4) <a name="trouble">Troubleshooting</a></strong><br>
+  The following problems may ocure:<br>
+  <br>
+  Problem: <i>fatal error C1189: #error :  please include atlcrack.h first</i><br>
+  Solutions: include atlcrack.h into your stdafx.h<br>
+  <br>
+  If you encounter a problem not listed above, please contact us, see <a href="#contact">Contact Information</a> for more details.
+</p>
+<br>
+<p><strong>5) <a name="contact">Contact Information</a></strong><br>
+  For more information and update, please visit our website at: <a href="http://www.Trilobyte-Solutions.nl" target="_blank">www.Trilobyte-Solutions.nl</a>, or send an email to <a href="MAILTO:info@Trilobyte-Solutions.nl">info@Trilobyte-Solutions.nl</a>.
+</p>
+<br>
+<br>
+<br>
+</font>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="CPictureBox"><strong>CPictureBox()</strong><br>
+The contructor of the CPictureBox, nothing fancy here.
+</a>
+</font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="~CPictureBox"><strong>~CPictureBox()</strong><br>
+The destructor of the CPictureBox, if the picturebox owns the bitmap, the bitmap will be destroyed.
+</a>
+</font>
+<HR>
+
+<font face="Arial, Helvetica, sans-serif">
+</p>
+<p><a name="OnCreate"><font color="#0000FF"><strong>LRESULT</strong></font><strong> OnCreate(<font color="#0000FF">LPCREATESTRUCT</font> lpCreateStruct)</strong><br>
+  Message handler for the <font color="#990000">WM_CREATE</font> message, dont call it.
+</a></p>
+</font>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="OnEraseBkGnd"><font color="#0000FF"><strong>LRESULT</strong></font><strong> OnEraseBkGnd(<font color="#0000FF">HDC</font> hDC)</strong><br>
+Message handler for the <font color="#990000">WM_ERASEBKGND</font> message, dont call it.
+</a></font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="OnRMouseDown"><font color="#0000FF"><strong>void</strong></font><strong> OnRMouseDown(<font color="#0000FF">UINT</font> uiFlags, <font color="#0000FF">CPoint</font>& rPoint)</strong><br>
+Message handler for the <font color="#990000">WM_RBUTTONDOWN</font> message, dont call it.
+</a>
+</font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="OnCenterImage"><font color="#0000FF"><strong>void</strong></font><strong>	OnCenterImage(<font color="#0000FF">UINT</font>, <font color="#0000FF">int</font>, <font color="#0000FF">HWND</font>)</strong><br>
+Message handler for the <font color="#990000">PICTUREBOX_MENU_CENTER</font> menu message, dont call it.
+</a>
+</font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="OnStretchImage"><font color="#0000FF"><strong>void</strong></font><strong> OnStretchImage(<font color="#0000FF">UINT</font>, <font color="#0000FF">int</font>, <font color="#0000FF">HWND</font>)</strong><br>
+Message handler for the <font color="#990000">PICTUREBOX_MENU_STRETCH</font> menu message, dont call it.
+</a>
+</font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="DoPaint"><font color="#0000FF"><strong>void</strong></font><strong> DoPaint(<font color="#0000FF">CDCHandle</font> hDC)</strong><br> 
+This function is an overloaded function from <font color="#0000FF">CScrollWindowImpl</font>. This function is called when <font color="#0000FF">CScrollWindowImpl</font></a> received a <font color="#990000">WM_PAINT</font> message. dont call this function. </font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="ScrollWindowEx"><font color="#0000FF"><strong>void</strong></font><strong> ScrollWindowEx(<font color="#0000FF">int</font> dx, <font color="#0000FF">int</font> dy, <font color="#0000FF">UINT</font> uiFlags)</strong><br>
+This function is an overloaded function from <font color="#0000FF">CScrollWindowImpl</font>. This function is called when <font color="#0000FF">CScrollWindowImpl</font></a> received a <font color="#990000">WM_SCROLL</font> message. dont call this function.</a></font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="GetBitmap"><font color="#0000FF"><strong>HBITMAP</strong></font><strong> GetBitmap()</strong><br>
+Call this function the get the handle to the current bitmap in the CPictureBox. <font color="#FF0000">!WARNING!</font> The CPictureBox is not longer the owner of that image.
+</a></font></p>
+<HR>
+<p><font face="Arial, Helvetica, sans-serif"><a name="GetSaveBitmap"><strong><font color="#0000FF">HBITMAP</font> GetSaveBitmap()<font color="#0000FF">const</font></strong><br>
+Call this function to get a save handle to the current bitmap in the CPictureBox, the CPictureBox is still the owner of the bitmap.
+</a></font></p>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="SetBitmap"><strong>void	SetBitmap(<font color="#0000FF">HBITMAP</font> hBitmap, <font color="#0000FF">bool</font> bOwner = <font color="#0000FF">true</font>)</strong><br>
+params:
+</a></font>
+<ul>
+  <li><a name="SetBitmap"><font color="#0000FF" face="Arial, Helvetica, sans-serif">HBITMAP</font><font face="Arial, Helvetica, sans-serif"> hBitmap: handle to the new bitmap.</font></a></li>
+  <li><a name="SetBitmap"><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font><font face="Arial, Helvetica, sans-serif"> bOwner: if <font color="#0000FF">true</font>, the CPictureBox asumes ownership of the bitmap.</font></a></li>
+</ul>
+<a name="SetBitmap"><font face="Arial, Helvetica, sans-serif">Use this function to set a new bitmap.</font></a>
+<font face="Arial, Helvetica, sans-serif">
+</p>
+</font>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="LoadBitmapFromFile"><font color="#0000FF"><strong>bool</strong></font><strong> LoadBitmapFromFile(<font color="#0000FF">LPCTSTR</font> pszFileName)</strong><br>
+params:
+</a></font>
+<ul>
+	<li><a name="LoadBitmapFromFile"><font color="#0000FF" face="Arial, Helvetica, sans-serif">LPCTSTR</font><font face="Arial, Helvetica, sans-serif"> pszFilename: Pointer to a null terminated string containing the filename</font></a></li>
+</ul>
+<a name="LoadBitmapFromFile"><font face="Arial, Helvetica, sans-serif">returns <font color="#0000FF">true</font> if the action is succesfull.<br>
+Call this function to load a bitmap from a file. </font></a>
+<font face="Arial, Helvetica, sans-serif">
+</p>
+</font>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="LoadBitmapFromID"><font color="#0000FF"><strong>bool</strong></font><strong> LoadBitmapFromID(<font color="#0000FF">HINSTANCE</font> hInstance, <font color="#0000FF">UINT</font> uiIDResource)</strong><br>
+params:
+</a></font>
+<ul>
+	<li><a name="LoadBitmapFromID"><font color="#0000FF" face="Arial, Helvetica, sans-serif">HINSTANCE</font><font face="Arial, Helvetica, sans-serif"> hInstance: The instance to load the bitmap from</font></a></li>
+	<li><a name="LoadBitmapFromID"><font color="#0000FF" face="Arial, Helvetica, sans-serif">UINT</font><font face="Arial, Helvetica, sans-serif"> uiIDResource: The number of the bitmap.</font></a></li>
+</ul>
+<a name="LoadBitmapFromID"><font face="Arial, Helvetica, sans-serif">returns <font color="#0000FF">true</font> if the action is succesfull.<br>
+Call this function to load a bitmap from an ID.</font></a><font face="Arial, Helvetica, sans-serif">
+</p>
+</font>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="CenterPicture"><font color="#0000FF"><strong>void</strong></font><strong> CenterPicture(<font color="#0000FF">bool</font> bCenter)</strong><br>
+params:
+</a></font>
+<ul>
+	<li><a name="CenterPicture"><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font><font face="Arial, Helvetica, sans-serif"> bCenter: If bCenter is <font color="#0000FF">true</font>, the image will be drawn in the center of the view, else it will be drawn in the top left corner of the view.</font></a></li>
+</ul>
+<a name="CenterPicture"><font face="Arial, Helvetica, sans-serif">Call this function to either draw the image in the center of the view, or to draw it in the top left corner of the view. </font></a>
+<font face="Arial, Helvetica, sans-serif">
+</p>
+</font>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="StretchPicture"><font color="#0000FF"><strong>void</strong></font><strong> StretchPicture(<font color="#0000FF">bool</font> bStretch)</strong><br>
+params:
+</a></font>
+<ul>
+	<li><a name="StretchPicture"><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font><font face="Arial, Helvetica, sans-serif"> bStretch: If bStretch is <font color="#0000FF">true</font>, the image will be stretched to fill the whole view, else it will be drawn normal.</font></a></li>
+</ul>
+<a name="StretchPicture"><font face="Arial, Helvetica, sans-serif">Call this function to either stretch the image over the whole view, or draw it normal.</font></a>
+<font face="Arial, Helvetica, sans-serif">
+</p>
+</font>
+<hr>
+<p>
+<font face="Arial, Helvetica, sans-serif"><a name="UseMenu"><font color="#0000FF"><strong>void</strong></font><strong> UseMenu(<font color="#0000FF">bool</font> bUseMenu)</strong><br>
+params:
+</a></font>
+<ul>
+	<li><a name="UseMenu"><font color="#0000FF" face="Arial, Helvetica, sans-serif">bool</font><font face="Arial, Helvetica, sans-serif"> bUseMenu: If bUseMenu is <font color="#0000FF">true</font>, the built in context menu will be used.</font></a></li>
+</ul>
+<a name="UseMenu"><font face="Arial, Helvetica, sans-serif">Call this function to enable or disable the context menu.</font></a>
+<font face="Arial, Helvetica, sans-serif">
+</p>
+
+</font>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif"><a name="UpdateScrollView"><font color="#0000FF"><strong>void</strong></font><strong> UpdateScrollView()</strong><br>
+This function is used to calculate the virtual view size, and the scroll sizes.
+</a></font></p>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif"><a name="UpdateMenu"><font color="#0000FF"><strong>void</strong></font><strong> UpdateMenu()</strong><br>
+This function is used to update the context menu items.
+</a></font></p>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif"><a name="m_dwStyle"><font color="#0000FF">DWORD</font> m_dwStyle<br>
+This variable holds the current style of the CPictureBox.
+</a></font></p>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif"><a name="m_Image"><font color="#0000FF">ATL::CImage</font> m_Image<br>
+This variable holds the current bitmap of the CPictureBox and takes care of loading the bitmap.
+</a></font></p>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif"><a name="m_Menu"><font color="#0000FF">WTL::CMenu</font> m_Menu<br>
+This variable holds the menu of the CPictureBox.
+</a></font></p>
+<hr>
+</body>
+</html>
