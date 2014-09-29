@@ -27,6 +27,15 @@ LRESULT CMainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/
 	m_plateRecognize->LoadSVM("model/svm.xml");
 	m_plateRecognize->LoadANN("model/ann.xml");
 
+	m_plateRecognize->setGaussianBlurSize(5);
+	m_plateRecognize->setMorphSizeWidth(17);
+
+	m_plateRecognize->setVerifyMin(3);
+	m_plateRecognize->setVerifyMax(20);
+
+	m_plateRecognize->setLiuDingSize(7);
+	m_plateRecognize->setColorThreshold(150);
+
 	m_fileName = "res/plate_recognize.jpg";
 	m_matInput = imread(m_fileName);
 
