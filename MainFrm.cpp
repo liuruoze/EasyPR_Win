@@ -117,26 +117,6 @@ LRESULT CMainFrame::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCt
 	return 0;
 }
 
-//切去上部与底部干扰的细节
-Mat cutBottom(Mat img)
-{
-	int width = img.size().width;
-	int height = img.size().height;
-	Rect rect(0, 0.00, width*1, height*0.98);
-	Mat dst = img(rect);
-	return dst;
-}
-
-//切去最上部扰乱的细节
-Mat cutTop(Mat img)
-{
-	int width = img.size().width;
-	int height = img.size().height;
-	Rect rect(0, height*0.1, width*1, height*0.9);
-	Mat dst = img(rect);
-	return dst;
-}
-
 LRESULT CMainFrame::OnPlateDetection(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
 	// TODO: 在此添加命令处理程序代码
@@ -177,7 +157,7 @@ LRESULT CMainFrame::OnCharsRecognition(WORD /*wNotifyCode*/, WORD /*wID*/, HWND 
 	string plate;
 
 	int result = m_plateRecognize->charsRecognise(m_matPlate, plate);
-			
+
 	MessageBox(_T(plate.c_str()));
 
 	MessageBox(_T("识别字符结束"));
