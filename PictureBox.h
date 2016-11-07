@@ -18,6 +18,8 @@
 #include <atlctrls.h>
 #endif
 
+#define yc
+
 #ifndef __ATLSCRL_H__
 #include <atlscrl.h>
 #endif
